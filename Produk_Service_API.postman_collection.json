@@ -1,0 +1,554 @@
+{
+	"info": {
+		"_postman_id": "pkl-produk-service-2025",
+		"name": "Produk Service API",
+		"description": "Collection for Produk Service API - Complete endpoints for Categories, Products, and Transactions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Categories",
+			"item": [
+				{
+					"name": "Create Category (Soal 1)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Electronics\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"categories"
+							]
+						},
+						"description": "Endpoint untuk menambahkan kategori produk baru.\n\n**Response Success (201):**\n```json\n{\n    \"success\": true,\n    \"message\": \"Kategori dibuat\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Electronics\",\n        \"created_at\": \"2025-11-17T07:00:00.000000Z\",\n        \"updated_at\": \"2025-11-17T07:00:00.000000Z\"\n    }\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Electronics Updated\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category_id\": 1,\n    \"name\": \"Laptop Gaming ASUS ROG\",\n    \"description\": \"Laptop gaming dengan spesifikasi tinggi\",\n    \"stock\": 15,\n    \"price\": 25000000,\n    \"status\": \"Available\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products with Filter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/products?q=laptop&status=Available",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "laptop"
+								},
+								{
+									"key": "status",
+									"value": "Available"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Product by Name (Soal 5)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/products/search?name=laptop",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"products",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "laptop"
+								}
+							]
+						},
+						"description": "API untuk pencarian produk berdasarkan nama menggunakan query parameter.\n\n**Request:** GET /api/products/search?name=laptop\n\n**Response Success (200):**\n```json\n{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"category_id\": 1,\n            \"name\": \"Laptop Gaming ASUS ROG\",\n            \"description\": \"Laptop gaming dengan spesifikasi tinggi\",\n            \"stock\": 15,\n            \"price\": \"25000000.00\",\n            \"status\": \"Available\",\n            \"created_at\": \"2025-11-17T07:00:00.000000Z\",\n            \"updated_at\": \"2025-11-17T07:00:00.000000Z\"\n        }\n    ]\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Laptop Gaming ASUS ROG Updated\",\n    \"description\": \"Laptop gaming updated\",\n    \"stock\": 20,\n    \"price\": 26000000,\n    \"status\": \"Available\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product Stock (Soal 3)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"stock\": 50\n}"
+						},
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/products/1/stock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"products",
+								"1",
+								"stock"
+							]
+						},
+						"description": "API untuk update stok produk berdasarkan ID.\n\n**Request Body:**\n```json\n{\n    \"stock\": 50\n}\n```\n\n**Response Berhasil (200):**\n```json\n{\n    \"success\": true,\n    \"message\": \"Stok diperbarui\",\n    \"data\": {\n        \"id\": 1,\n        \"category_id\": 1,\n        \"name\": \"Laptop Gaming ASUS ROG\",\n        \"description\": \"Laptop gaming dengan spesifikasi tinggi\",\n        \"stock\": 50,\n        \"price\": \"25000000.00\",\n        \"status\": \"Available\",\n        \"created_at\": \"2025-11-17T07:00:00.000000Z\",\n        \"updated_at\": \"2025-11-17T07:10:00.000000Z\"\n    }\n}\n```\n\n**Response Gagal (404):**\n```json\n{\n    \"success\": false,\n    \"message\": \"Produk tidak ditemukan\"\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Empty Stock Products (Soal 4)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/products/empty-stock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"products",
+								"empty-stock"
+							]
+						},
+						"description": "Endpoint untuk menghapus seluruh produk yang stoknya habis (stock = 0).\n\n**Endpoint:** DELETE /api/products/empty-stock\n\n**Response (200):**\n```json\n{\n    \"success\": true,\n    \"message\": \"Produk stok 0 dihapus\",\n    \"deleted_count\": 5\n}\n```"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. Transactions",
+			"item": [
+				{
+					"name": "Get All Transactions (Soal 2)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"transactions"
+							]
+						},
+						"description": "API untuk menampilkan daftar transaksi pembelian produk.\n\n**Response (200):**\n```json\n{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"product_id\": 1,\n            \"qty\": 2,\n            \"total\": \"50000000.00\",\n            \"purchased_at\": \"2025-11-17T07:15:00.000000Z\",\n            \"created_at\": \"2025-11-17T07:15:00.000000Z\",\n            \"updated_at\": \"2025-11-17T07:15:00.000000Z\",\n            \"product\": {\n                \"id\": 1,\n                \"category_id\": 1,\n                \"name\": \"Laptop Gaming ASUS ROG\",\n                \"description\": \"Laptop gaming dengan spesifikasi tinggi\",\n                \"stock\": 13,\n                \"price\": \"25000000.00\",\n                \"status\": \"Available\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"product_id\": 2,\n            \"qty\": 1,\n            \"total\": \"5000000.00\",\n            \"purchased_at\": \"2025-11-17T07:20:00.000000Z\",\n            \"created_at\": \"2025-11-17T07:20:00.000000Z\",\n            \"updated_at\": \"2025-11-17T07:20:00.000000Z\",\n            \"product\": {\n                \"id\": 2,\n                \"category_id\": 1,\n                \"name\": \"Mouse Gaming\",\n                \"description\": \"Mouse gaming RGB\",\n                \"stock\": 49,\n                \"price\": \"5000000.00\",\n                \"status\": \"Available\"\n            }\n        }\n    ],\n    \"first_page_url\": \"http://localhost/pkl-14-11-25/public/api/transactions?page=1\",\n    \"from\": 1,\n    \"last_page\": 1,\n    \"last_page_url\": \"http://localhost/pkl-14-11-25/public/api/transactions?page=1\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Previous\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost/pkl-14-11-25/public/api/transactions?page=1\",\n            \"label\": \"1\",\n            \"active\": true\n        },\n        {\n            \"url\": null,\n            \"label\": \"Next &raquo;\",\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": null,\n    \"path\": \"http://localhost/pkl-14-11-25/public/api/transactions\",\n    \"per_page\": 20,\n    \"prev_page_url\": null,\n    \"to\": 2,\n    \"total\": 2\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\": 1,\n    \"qty\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Membuat transaksi pembelian produk. Stok produk akan otomatis berkurang.\n\n**Response Success (201):**\n```json\n{\n    \"success\": true,\n    \"message\": \"Transaksi berhasil\",\n    \"data\": {\n        \"id\": 1,\n        \"product_id\": 1,\n        \"qty\": 2,\n        \"total\": \"50000000.00\",\n        \"purchased_at\": \"2025-11-17T07:15:00.000000Z\",\n        \"created_at\": \"2025-11-17T07:15:00.000000Z\",\n        \"updated_at\": \"2025-11-17T07:15:00.000000Z\"\n    }\n}\n```\n\n**Response Error - Stok Tidak Cukup (400):**\n```json\n{\n    \"success\": false,\n    \"message\": \"Stok tidak cukup\"\n}\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/pkl-14-11-25/public/api/transactions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"pkl-14-11-25",
+								"public",
+								"api",
+								"transactions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/pkl-14-11-25/public/api"
+		}
+	]
+}
