@@ -7,6 +7,106 @@
 	},
 	"item": [
 		{
+			"name": "0. Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" },
+							{ "key": "Accept", "value": "application/json" }
+						],
+						"body": { "mode": "raw", "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"secret123\"\n}" },
+						"url": { "raw": "{{base_url}}/register" },
+						"description": "Register new user. Returns `access_token` on success."
+					},
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try {",
+									"  var json = pm.response.json();",
+									"  if (json.access_token) { pm.collectionVariables.set('token', json.access_token); }",
+									"} catch (e) {}"
+								]
+							}
+						}
+					],
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Content-Type", "value": "application/json" },
+							{ "key": "Accept", "value": "application/json" }
+						],
+						"body": { "mode": "raw", "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"secret123\"\n}" },
+						"url": { "raw": "{{base_url}}/login" },
+						"description": "Login with email and password. Returns `access_token`."
+					},
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"try {",
+									"  var json = pm.response.json();",
+									"  if (json.access_token) { pm.collectionVariables.set('token', json.access_token); }",
+									"} catch (e) {}"
+								]
+							}
+						}
+					],
+					"response": []
+				},
+				{
+					"name": "Me (Get current user)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{ "key": "Accept", "value": "application/json" },
+							{ "key": "Authorization", "value": "Bearer {{token}}" }
+						],
+						"url": { "raw": "{{base_url}}/me" },
+						"description": "Get current authenticated user. Set `{{token}}` variable from login response."
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Accept", "value": "application/json" },
+							{ "key": "Authorization", "value": "Bearer {{token}}" }
+						],
+						"url": { "raw": "{{base_url}}/refresh" },
+						"description": "Refresh access token. Provide current token in Authorization header."
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{ "key": "Accept", "value": "application/json" },
+							{ "key": "Authorization", "value": "Bearer {{token}}" }
+						],
+						"url": { "raw": "{{base_url}}/logout" },
+						"description": "Invalidate current token (logout)."
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "1. Categories",
 			"item": [
 				{
